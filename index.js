@@ -9,6 +9,18 @@ client.on("ready", () => {
     console.log("BOT ONLINE")
 })
 
+var embed = new Discord.MessageEmbed()
+            .setColor("#ff0000")
+            .setTitle("Twitch")
+            .setURL("https://www.twitch.tv/magnacane")
+            .setAuthor("Magnacane", "https://static-cdn.jtvnw.net/jtv_user_pictures/5c7c8f4e-cc90-4752-a452-08cce7144b01-profile_image-70x70.png", "https://www.twitch.tv/magnacane")
+            .setDescription("Seguimi su Twitch!") 
+            .setThumbnail("https://static-cdn.jtvnw.net/jtv_user_pictures/5c7c8f4e-cc90-4752-a452-08cce7144b01-profile_image-70x70.png")
+            .setImage("https://static-cdn.jtvnw.net/jtv_user_pictures/5c7c8f4e-cc90-4752-a452-08cce7144b01-profile_image-70x70.png")
+            .setTimestamp();
+
+            
+
 client.on("messageCreate", (message) => {
     if(message.content=="!Twitch" || message.content=="!twitch")
     {
@@ -17,11 +29,6 @@ client.on("messageCreate", (message) => {
 
     if(message.content=="!embed")
     {
-        var embed = new Discord.MessageEmbed()
-            .setTitle("Embed title")
-            .setDescription(`${message.author.username}`) 
-            .setThumbnail("https://play-lh.googleusercontent.com/xQ-meXSBylIU8VKA7yUQXDwRu99JX8ic7mAsM4sBidjRgtMyhBDmYD4CpATqrdc1SA")
-
-            message.channel.send({ embeds: [embed] })
+        message.channel.send(embed);
     }
 })
